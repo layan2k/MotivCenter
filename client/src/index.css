@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Raleway', sans-serif;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  margin-left: 3px;
+  position: relative;
+  z-index: -1;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 30px;
+  position: relative;
+  z-index: -1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 30px;
+  position: relative;
+  z-index: -1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  position: relative;
+  z-index: -1;
+}
+
+.LinkItem {
+  text-decoration: none;
+  color: #1D1F22;
+  font-weight:400;
+}
+.LinkItem:hover{
+  font-weight: 500;
+  color: darkblue;
+}
+
+.active {
+  text-decoration: none;
+  font-weight: 700;
+  color: royalblue;
+  transition: all 0.2s ease-out;
+}
+
+.link {
+  text-decoration: none;
+  color: #1D1F22;
+}
