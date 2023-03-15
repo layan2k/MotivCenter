@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -77,7 +77,7 @@ const Button = styled.button`
   }
 `
 
-const Blog  = () => {
+const Blog  = (props) => {
     const posts = [
       {
         id: 1,
@@ -104,6 +104,13 @@ const Blog  = () => {
         img: "https://images.pexels.com/photos/6157049/pexels-photo-6157049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       },
     ];
+
+    useEffect(() => {
+      const SetTitle = async () =>{
+        document.title = `${await props.title} - MotivCenter`
+      }
+      SetTitle()
+    }, [])
     return (
       <Container>
         <Posts>

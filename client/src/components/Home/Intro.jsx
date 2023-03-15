@@ -53,6 +53,7 @@ const Info = styled.div`
 `
 const Button = styled.button`
     padding:15px 30px;
+    border-radius: 5px;
     background-color: darkblue;
     color:white;
     font-weight: bold;

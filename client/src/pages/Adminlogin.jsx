@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import Backg from '../assets/low-poly-grid-haikei.svg'
 import axios from 'axios';
@@ -53,7 +53,7 @@ const ErrorText = styled.p`
     color: red;
 `
 
-const Adminlogin = () => {
+const Adminlogin = (props) => {
     const [inputs, setinputs] = useState({
         username: "",
         password: "",
@@ -72,6 +72,12 @@ const Adminlogin = () => {
           // Handle login error
         });
     }
+    useEffect(() => {
+        const SetTitle = async () =>{
+          document.title = `${await props.title} - MotivCenter`
+        }
+        SetTitle()
+      }, [])
   return (
     <>
     <Container bg={Backg}>

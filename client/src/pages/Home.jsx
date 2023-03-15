@@ -7,6 +7,7 @@ import Service from '../components/Home/AboutOzias';
 import AboutUs from '../components/Home/AboutUs';
 import Subscribe from '../components/Home/Subscribe';
 import BgC from '../assets/bg.jpg'
+import { useEffect } from 'react';
 
 const Container = styled.div`
 height: ${props=> props.checkscreen ? "auto" : "100vh"};
@@ -57,7 +58,14 @@ const ServiceShape = styled.div`
 
 `
 
-const Home = () => {
+
+const Home = (props) => {
+  useEffect(() => {
+    const SetTitle = async () =>{
+      document.title = `${await props.title} - MotivCenter`
+    }
+    SetTitle()
+  }, [props.ti])
   const smallScreen = window.screen.width <= 480 ? true : false
   return (
     <>
