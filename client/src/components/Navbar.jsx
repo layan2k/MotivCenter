@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-import LogoImg from'../assets/Logo1.png'
+import LogoImg from '../assets/Logo1.png'
 import { SocialMedia } from '../data/SocialMedia'
 import SocialMediaIcon from './Home/SocialMediaIcon'
 
@@ -33,8 +33,8 @@ width: 100px;
 
 const Menu = styled.div`
     display: flex;
-    gap: 10px
-    @media only screen and (max-width:480px){
+    gap: 10px;
+    @media only screen and (max-width:776px){
         display: none;
     }
 `
@@ -66,69 +66,69 @@ const SocialMediaContainer = styled.div`
 
 const Navbar = () => {
     const Netws = SocialMedia
-  return (
-    <Container>
-        <Wrapper>
-            <Left><Logo src={LogoImg} />
-            </Left>
-            <Menu>
+    return (
+        <Container>
+            <Wrapper>
+                <Left><Logo src={LogoImg} />
+                </Left>
+                <Menu>
 
-            <NavLink to='/' className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active"
-                        : isPending
-                        ? "pending"
-                        : "LinkItem"
+                    <NavLink to='/' className={({ isActive, isPending }) =>
+                        isActive
+                            ? "active"
+                            : isPending
+                                ? "pending"
+                                : "LinkItem"
                     }>
-            <Menuitem>Home</Menuitem>
-            </NavLink >
-            <NavLink to='blog' className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active"
-                        : isPending
-                        ? "pending"
-                        : "LinkItem"
+                        <Menuitem>Home</Menuitem>
+                    </NavLink >
+                    <NavLink to='blog' className={({ isActive, isPending }) =>
+                        isActive
+                            ? "active"
+                            : isPending
+                                ? "pending"
+                                : "LinkItem"
                     }>
-            <Menuitem>Blog</Menuitem>
-            </NavLink>
-            <NavLink to='services' className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active"
-                        : isPending
-                        ? "pending"
-                        : "LinkItem"
+                        <Menuitem>Blog</Menuitem>
+                    </NavLink>
+                    <NavLink to='services' className={({ isActive, isPending }) =>
+                        isActive
+                            ? "active"
+                            : isPending
+                                ? "pending"
+                                : "LinkItem"
                     }>
-            <Menuitem>Services</Menuitem>
-            </NavLink>
-            <NavLink to='about' className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active"
-                        : isPending
-                        ? "pending"
-                        : "LinkItem"
+                        <Menuitem>Services</Menuitem>
+                    </NavLink>
+                    <NavLink to='about' className={({ isActive, isPending }) =>
+                        isActive
+                            ? "active"
+                            : isPending
+                                ? "pending"
+                                : "LinkItem"
                     }>
-            <Menuitem>About</Menuitem>
-            </NavLink>
-            <NavLink to='contact' className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active"
-                        : isPending
-                        ? "pending"
-                        : "LinkItem"
+                        <Menuitem>About</Menuitem>
+                    </NavLink>
+                    <NavLink to='contact' className={({ isActive, isPending }) =>
+                        isActive
+                            ? "active"
+                            : isPending
+                                ? "pending"
+                                : "LinkItem"
                     }>
-            <Menuitem>Contact</Menuitem>
-            </NavLink>
-            </Menu>
-            <Right>
-            <SocialMediaContainer>
-            {Netws.map(sicon =>(
-            <SocialMediaIcon data={sicon}/>
-            ))}
-                </SocialMediaContainer>
-            </Right>
-        </Wrapper>
+                        <Menuitem>Contact</Menuitem>
+                    </NavLink>
+                </Menu>
+                <Right>
+                    <SocialMediaContainer>
+                        {Netws.map(sicon => (
+                            <SocialMediaIcon data={sicon} />
+                        ))}
+                    </SocialMediaContainer>
+                </Right>
+            </Wrapper>
         </Container>
-  )
+    )
 }
 
 export default Navbar

@@ -4,9 +4,13 @@ import styled from 'styled-components'
 const Container = styled.div`
     height: calc(100vh - 50px);
     display: flex;
-    padding: 20px;
+    padding: 0 20px;
     color: #1D1F22;
     @media only screen and (max-width:480px){
+        flex-direction: column;
+        text-align: justify;
+    }
+    @media only screen and (max-width:1024px){
         flex-direction: column;
     }
 `
@@ -20,15 +24,26 @@ const Left = styled.div`
         width:100%;
         height: 100%
     }
+    @media only screen and (max-width:1024px){
+        width:100%;
+        height: 100%
+    }
+
 
 `
 const Title = styled.h1`
     font-size: 50px;
     width:60%;
     font-weight: 800;
-    @media only screen and (max-width:480px){
+
+    @media only screen and (max-width:1024px){
         width:100%;
-        font-size: 50px;
+        text-align: center;
+        font-size: 40px;
+    }
+        @media only screen and (max-width:480px){
+        width:100%;
+        font-size: 35px;
     }
   `
 const Description = styled.p`
@@ -36,8 +51,14 @@ const Description = styled.p`
     font-size:25px;
     margin-top: 20px;
     font-weight: 600;
-    @media only screen and (max-width:480px){
+
+    @media only screen and (max-width:1024px){
         width:100%;
+        text-align: center;
+    }
+       @media only screen and (max-width:480px){
+        width:100%;
+        font-size: 20px;
     }
 `
 const Info = styled.div`
@@ -46,7 +67,16 @@ const Info = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 50px;
+    @media only screen and (max-width:1024px){
+        gap: 10px;
+        margin-top: 30px;
+        flex-direction: column;
+        width: 100%;
+    }
     @media only screen and (max-width:480px){
+        flex-direction: column;
+    }
+    @media only screen and (max-width:1024px){
         flex-direction: column;
     }
 
@@ -75,6 +105,7 @@ const Phone = styled.span`
     @media only screen and (max-width:480px){
         color: #1D1F22;
     }
+
 `
 
 const ContactText = styled.span`
@@ -95,30 +126,30 @@ const Image = styled.img`
 `
 
 const Intro = () => {
-  return (
-    <Container>
-      <Left><Title>
-      Your Success is Our Commitment
-        </Title>
-        <Description>
-        We believe in the power of motivated individuals to enhance your work environment.
-        </Description>
-        <Info>
-          <Button>LEARN MORE</Button>
-          <Contact>
-            <Phone>
-              Call Us +258 84 0396785
-            </Phone>
-            <ContactText>
-              For any question or concern
-            </ContactText>
-          </Contact>
+    return (
+        <Container>
+            <Left><Title>
+                Your Success is Our Commitment
+            </Title>
+                <Description>
+                    We believe in the power of motivated individuals to enhance your work environment.
+                </Description>
+                <Info>
+                    <Button>LEARN MORE</Button>
+                    <Contact>
+                        <Phone>
+                            Call Us +258 84 0396785
+                        </Phone>
+                        <ContactText>
+                            For any question or concern
+                        </ContactText>
+                    </Contact>
 
-        </Info>
-        </Left>
-      <Right><Image></Image></Right>
-    </Container>
-  )
+                </Info>
+            </Left>
+            <Right><Image></Image></Right>
+        </Container>
+    )
 }
 
 export default Intro

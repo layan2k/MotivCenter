@@ -10,6 +10,16 @@ const Container = styled.div`
   height: 100vh;
   background:   ${props=> props.backgroundpic? "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))": "none"}, url(${props => props.backgroundpic? props.backgroundpic : "none" });
   background-size: cover;
+  @media only screen and (max-width:1024px){
+    height: auto;
+    width: 100%;
+    min-height: 72vh;
+    }
+    @media only screen and (max-width:480px){
+    height: auto;
+    width: 100%;
+    min-height: 50vh;
+    }
 `;
 const Header = styled.div`
   background-color: #2b2d42;
@@ -17,6 +27,9 @@ const Header = styled.div`
   font-size: 36px;
   color: #fff;
   text-align: center;
+  @media only screen and (max-width:480px){
+    padding: 25px 0;
+    }
 `;
 
 const FormWrapper = styled.div`
@@ -25,26 +38,48 @@ const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 100px;
-  background-color: #2b2d42;
+  background: rgba(0, 0, 0, 0.199);
+  border: 1px solid #2b2d422d;
   border-radius: 5px;
+  @media only screen and (max-width:480px){
+    padding: 59px;
+    }
 `;
 
 const InputWrapper = styled(Form.Item)`
   width: 100%;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const InputText = styled(Input)`
+  width: 250px;
+`
+
 const SubmitButton = styled(Button)`
   margin-top: 20px;
-  background-color: #1890ff;
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 30px;
+  background: white;
+  color: grey;;
+  border: 1px solid #0000002f;
+  border-radius: 5px;
 
   &:hover {
     background-color: #40a9ff;
   }
+  @media only screen and (max-width:1024px){
+    margin-top: 10px;
+    }
 `;
 
 const ContactPage = (props) => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
 
   const handleSubmit = () => {
     // send form data to server or API endpoint
@@ -64,17 +99,23 @@ const ContactPage = (props) => {
       <FormWrapper>
         <Form onFinish={handleSubmit}>
           <InputWrapper>
-            <Input placeholder="Name" onChange={(e) => setFormData({ ...formData, name: e.target.value })} width='100%'/>
+            <InputText placeholder="Name" onChange={(e) => setFormData({ ...formData, name: e.target.value })}/>
           </InputWrapper>
           <InputWrapper>
-            <Input placeholder="Email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+            <InputText placeholder="Email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
           </InputWrapper>
           <InputWrapper>
-            <Input.TextArea rows={4} placeholder="Message" onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+            <InputText placeholder="Subject" onChange={(e) => setFormData({ ...formData, subject: e.target.value })} />
           </InputWrapper>
-          <SubmitButton type="primary" htmlType="submit">
+          <InputWrapper>
+            <InputText.TextArea rows={5} placeholder="Message" onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+          </InputWrapper>
+          <ButtonContainer>
+          <SubmitButton type="primary" htmlType="submit" >
             Submit
           </SubmitButton>
+          </ButtonContainer>
+
         </Form>
       </FormWrapper>
     </Container>

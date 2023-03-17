@@ -23,6 +23,14 @@ const Container = styled.div`
         margin-bottom: 10px;
         padding: 10px;
     }
+        @media only screen and (max-width:776px){
+        margin-right:0 ;
+        padding: 10px;
+    }
+        @media only screen and (max-width:1024px){
+        margin-right:0 ;
+        padding: 10px;
+    }
 
 `
 const PriceContainer = styled.div`
@@ -58,6 +66,7 @@ const Button = styled.button`
     padding: 15px 20px;
     margin: 10px 0px;
     border:none;
+    border-radius: 5px;
     color: white;
     background-color: darkblue;
     font-size: 20px;
@@ -68,20 +77,20 @@ const Button = styled.button`
     }
 `
 
-const ServiceCard = ({name, info, link}) => {
-  return (
-    <Container>
-        <PriceContainer>
-            <ServiceIcon src={link} />
-            <Price>{name}</Price>
-        </PriceContainer>
+const ServiceCard = ({ name, info, link }) => {
+    return (
+        <Container>
+            <PriceContainer>
+                <ServiceIcon src={link} />
+                <Price>{name}</Price>
+            </PriceContainer>
             <Description>
-            {info}
+                {info}
             </Description>
             <Button>Learn More</Button>
 
-    </Container>
-  )
+        </Container>
+    )
 }
 
 export default ServiceCard

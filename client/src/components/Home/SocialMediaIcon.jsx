@@ -6,11 +6,18 @@ const Image = styled.img`
   height: 25px;
   cursor: pointer;
 `
+const LinkIcon = styled.a`
+  text-decoration: none;
+`
 
 function SocialMediaIcon({data}) {
   const Icon = data
   return (
+    <>
+    <LinkIcon href={Icon.link} target='_blank'  rel="noopener noreferrer">
     <Image src={Icon.logo}/>
+    </LinkIcon>
+    </>
   )
 }
 

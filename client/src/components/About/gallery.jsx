@@ -12,8 +12,9 @@ const GalleryContainer = styled.div`
 `;
 
 const GalleryImage = styled.img`
-  height: 500px;
+  height: 400px;
   width: 100%;
+  padding-top: 75px ;
   opacity: ${props => (props.current ? 1 : 0)};
   transition: opacity 1s ease-in-out;
 `;
@@ -31,11 +32,11 @@ const ControlButton = styled.button`
   cursor: pointer;
   margin: 0 10px;
   font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-const Button = styled.button`
-    padding: 5px 30px;
-`
 
 const images = [
   "https://picsum.photos/800/400",
