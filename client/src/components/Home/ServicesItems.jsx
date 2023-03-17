@@ -8,6 +8,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 30px;
     @media only screen and (max-width:480px){
         flex-direction:column;
         padding: 20px 0px ;
@@ -16,11 +17,10 @@ const Container = styled.div`
     @media only screen and (max-width:776px){
         flex-direction:column;
         padding: 30px 0px ;
-        gap : 30px;
     }
         @media only screen and (max-width:1024px){
         padding: 30px 0px ;
-        gap : 30px;
+
     }
 `
 

@@ -27,16 +27,15 @@ width: 100%;
 
 `
 const Hero = styled.div`
-background:  ${props => props.backgroundpic ? "linear-gradient(270deg, rgba(255 255 255 / 54%), rgba(65 105 255 / 100%))" : "none"}, url(${props => props.backgroundpic ? props.backgroundpic : "none"});
+background:  ${props => props.backgroundpic ? "linear-gradient(  rgba(255 255 255 / 54%), rgba(65 105 255 / 100%))" : "none"}, url(${props => props.backgroundpic ? props.backgroundpic : "none"});
 background-size: cover;
 overflow: hidden;
 position:relative;
 @media only screen and (max-width:480px){
-  background-size: 100% 100%;
+
     }
   @media only screen and (max-width:1024px){
-  background-size: 100% 100%;
-  background:  ${props => props.backgroundpic ? "linear-gradient(270deg, rgba(255 255 255 / 54%), rgba(65 105 255 / 100%))" : "none"}, url(${props => props.backgroundpic ? props.backgroundpic : "none"});
+
     }
 
 `
