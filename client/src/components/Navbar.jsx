@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 import LogoImg from'../assets/Logo1.png'
+import { SocialMedia } from '../data/SocialMedia'
+import SocialMediaIcon from './Home/SocialMediaIcon'
 
 const Container = styled.div`
     height:90px;
@@ -19,6 +21,11 @@ const Left = styled.div`
     justify-content: center;
 
 `
+const Right = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 const Logo = styled.img`
 height: 50px;
 width: 100px;
@@ -26,13 +33,13 @@ width: 100px;
 
 const Menu = styled.div`
     display: flex;
-    justify-content: space-between;
+    gap: 10px
     @media only screen and (max-width:480px){
         display: none;
     }
 `
 const Menuitem = styled.div`
-    padding: 0px 16px;
+    padding: 0px 10px;
     list-style: none;
     font-size: 16px;
 `
@@ -51,13 +58,21 @@ const Button = styled.button`
     }
 `
 
+const SocialMediaContainer = styled.div`
+  display: flex;
+  gap: 5px;
+  margin-right: 5px;
+`
+
 const Navbar = () => {
+    const Netws = SocialMedia
   return (
     <Container>
         <Wrapper>
             <Left><Logo src={LogoImg} />
             </Left>
             <Menu>
+
             <NavLink to='/' className={({ isActive, isPending }) =>
                       isActive
                         ? "active"
@@ -104,7 +119,13 @@ const Navbar = () => {
             <Menuitem>Contact</Menuitem>
             </NavLink>
             </Menu>
-            <Button>Contact</Button>
+            <Right>
+            <SocialMediaContainer>
+            {Netws.map(sicon =>(
+            <SocialMediaIcon data={sicon}/>
+            ))}
+                </SocialMediaContainer>
+            </Right>
         </Wrapper>
         </Container>
   )

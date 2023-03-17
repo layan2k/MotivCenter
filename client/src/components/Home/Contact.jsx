@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Map from '../../img/map.png'
 import Send from '../../img/send.png'
 import Phone from '../../img/phone.png'
+import MapChart from './MapChart'
 
 const Container = styled.div`
   height:90%;
@@ -179,7 +180,6 @@ const Contact = () => {
                     <MailTo href='mailto:motivcenter@motivcenter.com'>motivcenter@motivcenter.com</MailTo>
                 </AddressItem>
             </AddressContainer>
-
         </Wrapper>
     </Container>
   )
