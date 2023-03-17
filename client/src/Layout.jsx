@@ -22,6 +22,7 @@ const Mobile = styled.div`
         justify-content: space-between;
         height: 44px;
         padding: 20px 10px;
+        background-color:#2b2d42 ;
     }
 `
 
@@ -33,12 +34,12 @@ const Left = styled(Link)`
 
 `
 const Logo = styled.img`
-height: 50px;
+height: 55px;
 width: 100px;
 `
 const MenuIcon = styled.img`
   height: 40px;
-  width: 40px;
+  width: 30px;
 `
 
 const Layout = () => {

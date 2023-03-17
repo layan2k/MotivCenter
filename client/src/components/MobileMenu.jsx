@@ -6,7 +6,7 @@ import Cross from '../assets/cross.svg'
 
 const MenuContainer = styled.div`
   position: fixed;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -33,6 +33,7 @@ const CloseButton = styled.img`
   border: none;
   cursor: pointer;
   height: 40px;
+  width: 30px;
 `;
 
 const MobileMenu = ({ isOpen, onClose }) => {
