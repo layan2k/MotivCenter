@@ -1648,11 +1648,6 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-floating-whatsapp@^5.0.8:
-  version "5.0.8"
-  resolved "https://registry.yarnpkg.com/react-floating-whatsapp/-/react-floating-whatsapp-5.0.8.tgz#6bdda35ef29b18bbd130d60d387be8bac7a92781"
-  integrity sha512-4X485d04u7MoWpn61OpWPO/mL94P3gaFq1L932ztH7bo9eClAFcg5ufIxNKbJo9/1h0xpjWZKEW0KBB0apWzZw==
-
 react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -1696,6 +1691,11 @@ react-simple-maps@^3.0.0:
     d3-selection "^2.0.0"
     d3-zoom "^2.0.0"
     topojson-client "^3.1.0"
+
+react-whatsapp-button@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-whatsapp-button/-/react-whatsapp-button-2.0.0.tgz#5a19ddb477b8207c7796ccf5c0d1738f39d78df6"
+  integrity sha512-n8TafYH5J2fThZlNUxrDVBgOO0aFLS/QcWrbo437qYqyCmbFQiT++cbXAx4iGrMtI05rvHSamqOM1mYSsCH8VQ==
 
 react@^18.2.0:
   version "18.2.0"

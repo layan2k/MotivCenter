@@ -6,7 +6,7 @@ import BusinessFooter from './components/Footer2'
 import MobileMenu from './components/MobileMenu'
 import Navbar from './components/Navbar'
 import LogoImg from './assets/Logo1.png'
-import HamMenu from './assets/menu-burger.svg'
+import HamMenu from './assets/menu-burger2.svg'
 
 const Menu = styled.div`
       @media only screen and (max-width:776px){
