@@ -8,7 +8,7 @@ const ReactApp = () => {
         <div className="App">
             <ReactWhatsappButton
                 countryCode="258"
-                phoneNumber="840396758"
+                phoneNumber="840396785"
                 animated
                 message="Hello There! "
             />
