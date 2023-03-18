@@ -8,6 +8,7 @@ import AboutUs from '../components/Home/AboutUs';
 import Subscribe from '../components/Home/Subscribe';
 import BgC from '../assets/bg.jpg'
 import { useEffect } from 'react';
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
 background:  ${props => props.backgroundpic ? "linear-gradient(270deg, rgba(255 255 255 / 54%), rgba(65 105 255 / 100%))" : "none"}, url(${props => props.backgroundpic ? props.backgroundpic : "none"});
@@ -86,7 +87,11 @@ const Home = (props) => {
   }, [props.ti])
   const smallScreen = window.screen.width <= 1024 ? true : false
   return (
-    <>
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+    >
       {/* NavBar + Intro */}
       <Hero backgroundpic={BgC}>
         <Intro />
@@ -118,7 +123,7 @@ const Home = (props) => {
       <Container  >
         <Contact />
       </Container>
-    </>
+    </motion.div>
   );
 }
 

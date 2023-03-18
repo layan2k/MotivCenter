@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 padding: 0 30px;
 padding-bottom: 100px;
 
@@ -112,7 +113,11 @@ const Blog = (props) => {
     SetTitle()
   }, [])
   return (
-    <Container>
+    <Container
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+    >
       <Posts>
         {posts.map(post => (
           <Post key={post.id}>

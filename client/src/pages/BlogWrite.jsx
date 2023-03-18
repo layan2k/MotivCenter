@@ -1,9 +1,10 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { motion } from 'framer-motion'
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   min-height: 100vh;
   padding: 0 30px;
   margin-top: 20px;
@@ -58,7 +59,7 @@ const Publish = styled.h1`
 `
 const Status = styled.span``
 const Visibility = styled.span``
-const Buttons = styled.div `
+const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
   *{
@@ -93,7 +94,11 @@ const CategoryContainer = styled.div`
 const BlogWrite = () => {
   const [value, setValue] = useState('');
   return (
-    <Container>
+    <Container
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+    >
       <Content>
         <input placeholder='Title' />
         <EditorContainer>
@@ -109,7 +114,7 @@ const BlogWrite = () => {
           <Visibility>
             <b>Visibility:</b> Public
           </Visibility>
-          <InpArea style={{display:"none"}} type="file" id="file" />
+          <InpArea style={{ display: "none" }} type="file" id="file" />
           <label className='file' htmlFor="file">Upload Image</label>
           <Buttons>
             <button>Save As Draft</button>
@@ -119,26 +124,26 @@ const BlogWrite = () => {
         <Item>
           <Category>Category</Category>
           <CategoryContainer>
-          <InpArea type="radio" name="cat" value="selling" id="selling" />
-          <label htmlFor="selling">Sales</label>
+            <InpArea type="radio" name="cat" value="selling" id="selling" />
+            <label htmlFor="selling">Sales</label>
           </CategoryContainer>
           <CategoryContainer>
 
-          <InpArea type="radio" name="cat" value="motivation" id="motivation" />
-          <label htmlFor="motivation">Motivation</label>
+            <InpArea type="radio" name="cat" value="motivation" id="motivation" />
+            <label htmlFor="motivation">Motivation</label>
 
           </CategoryContainer>
           <CategoryContainer>
-          <InpArea type="radio" name="cat" value="leadership" id="leadership" />
-          <label htmlFor="leadership">Leadership</label>
+            <InpArea type="radio" name="cat" value="leadership" id="leadership" />
+            <label htmlFor="leadership">Leadership</label>
           </CategoryContainer>
           <CategoryContainer>
-          <InpArea type="radio" name="cat" value="goals" id="goals" />
-          <label htmlFor="goals">Goals</label>
+            <InpArea type="radio" name="cat" value="goals" id="goals" />
+            <label htmlFor="goals">Goals</label>
           </CategoryContainer>
           <CategoryContainer>
-          <InpArea type="radio" name="cat" value="speaking" id="speaking" />
-          <label htmlFor="speaking">Speaking</label>
+            <InpArea type="radio" name="cat" value="speaking" id="speaking" />
+            <label htmlFor="speaking">Speaking</label>
           </CategoryContainer>
 
         </Item>

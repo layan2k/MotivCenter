@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Form, Input, Button } from 'antd';
 import BgC from '../assets/ContactBg.jpg'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background:   ${props=> props.backgroundpic? "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))": "none"}, url(${props => props.backgroundpic? props.backgroundpic : "none" });
+  background:   ${props => props.backgroundpic ? "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))" : "none"}, url(${props => props.backgroundpic ? props.backgroundpic : "none"});
   background-size: cover;
   @media only screen and (max-width:1024px){
     height: auto;
@@ -86,40 +87,44 @@ const ContactPage = (props) => {
   };
 
   useEffect(() => {
-    const SetTitle = async () =>{
+    const SetTitle = async () => {
       document.title = `${await props.title} - MotivCenter`
     }
     SetTitle()
   }, [])
 
   return (
-    <>
-    <Header>Contact Us</Header>
-    <Container backgroundpic={BgC}>
-      <FormWrapper>
-        <Form onFinish={handleSubmit}>
-          <InputWrapper>
-            <InputText placeholder="Name" onChange={(e) => setFormData({ ...formData, name: e.target.value })}/>
-          </InputWrapper>
-          <InputWrapper>
-            <InputText placeholder="Email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-          </InputWrapper>
-          <InputWrapper>
-            <InputText placeholder="Subject" onChange={(e) => setFormData({ ...formData, subject: e.target.value })} />
-          </InputWrapper>
-          <InputWrapper>
-            <InputText.TextArea rows={5} placeholder="Message" onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
-          </InputWrapper>
-          <ButtonContainer>
-          <SubmitButton type="primary" htmlType="submit" >
-            Submit
-          </SubmitButton>
-          </ButtonContainer>
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+    >
+      <Header>Contact Us</Header>
+      <Container backgroundpic={BgC}>
+        <FormWrapper>
+          <Form onFinish={handleSubmit}>
+            <InputWrapper>
+              <InputText placeholder="Name" onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+            </InputWrapper>
+            <InputWrapper>
+              <InputText placeholder="Email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+            </InputWrapper>
+            <InputWrapper>
+              <InputText placeholder="Subject" onChange={(e) => setFormData({ ...formData, subject: e.target.value })} />
+            </InputWrapper>
+            <InputWrapper>
+              <InputText.TextArea rows={5} placeholder="Message" onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+            </InputWrapper>
+            <ButtonContainer>
+              <SubmitButton type="primary" htmlType="submit" >
+                Submit
+              </SubmitButton>
+            </ButtonContainer>
 
-        </Form>
-      </FormWrapper>
-    </Container>
-    </>
+          </Form>
+        </FormWrapper>
+      </Container>
+    </motion.div>
   );
 };
 

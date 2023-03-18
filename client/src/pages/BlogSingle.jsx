@@ -4,9 +4,10 @@ import EditIco from '../img/edit.png'
 import DeleteIco from '../img/delete.png'
 import { Link } from 'react-router-dom'
 import Menu from '../components/Blog/Menu'
+import { motion } from 'framer-motion'
 
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 display: flex;
 gap: 50px;
 min-height: 100vh;
@@ -75,28 +76,32 @@ const Description = styled.p`
 
 const BlogSingle = () => {
   return (
-    <Container>
-        <Content>
-            <Image src='https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' />
-            <User>
-              <UserImg />
-              <Info>
-                <Name>John</Name>
-                <PostDate>Posted 2 days ago</PostDate>
-              </Info>
-              <Edit>
-                <Link to={`/blog/write?edit=2`}>
-                <EditImg src={EditIco} />
-                </Link>
-                <EditImg src={DeleteIco}/>
-              </Edit>
-            </User>
-            <Title>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum?</Title>
-            <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ut nisi illo accusamus vero autem suscipit doloribus qui, ex enim voluptatem ipsam animi, aut impedit iste ipsum, eligendi corporis temporibus. <br /> <br /> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque repellendus libero tempora, esse dolorem illo minus laboriosam. Et, aut tempore, inventore suscipit magnam delectus ad aperiam molestias omnis, eius saepe! </Description>
-        </Content>
-        <MenuDiv>
-            <Menu />
-        </MenuDiv>
+    <Container
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+    >
+      <Content>
+        <Image src='https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' />
+        <User>
+          <UserImg />
+          <Info>
+            <Name>John</Name>
+            <PostDate>Posted 2 days ago</PostDate>
+          </Info>
+          <Edit>
+            <Link to={`/blog/write?edit=2`}>
+              <EditImg src={EditIco} />
+            </Link>
+            <EditImg src={DeleteIco} />
+          </Edit>
+        </User>
+        <Title>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eum?</Title>
+        <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ut nisi illo accusamus vero autem suscipit doloribus qui, ex enim voluptatem ipsam animi, aut impedit iste ipsum, eligendi corporis temporibus. <br /> <br /> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque repellendus libero tempora, esse dolorem illo minus laboriosam. Et, aut tempore, inventore suscipit magnam delectus ad aperiam molestias omnis, eius saepe! </Description>
+      </Content>
+      <MenuDiv>
+        <Menu />
+      </MenuDiv>
     </Container>
   )
 }

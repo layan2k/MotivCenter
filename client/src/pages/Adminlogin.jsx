@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Backg from '../assets/low-poly-grid-haikei.svg'
 import axios from 'axios';
+import { motion } from 'framer-motion'
 
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     height: 100vh;
     background-image: url(${props => props.bg}) ;
     display: flex;
@@ -60,37 +61,42 @@ const Adminlogin = (props) => {
     });
 
     const HandleChange = e => {
-        setinputs(prev=>({...prev, [e.target.name]: e.target.value}))
+        setinputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
 
     const HandleClick = () => {
         axios.post('/login', inputs)
-        .then((response) => {
-          // Handle successful login
-        })
-        .catch((error) => {
-          // Handle login error
-        });
+            .then((response) => {
+                // Handle successful login
+            })
+            .catch((error) => {
+                // Handle login error
+            });
     }
     useEffect(() => {
-        const SetTitle = async () =>{
-          document.title = `${await props.title} - MotivCenter`
+        const SetTitle = async () => {
+            document.title = `${await props.title} - MotivCenter`
         }
         SetTitle()
-      }, [])
-  return (
-    <>
-    <Container bg={Backg}>
-        <Form>
-            <Title><strong>Login</strong></Title>
-            <TextBox required placeholder='Username' name='username' type="text" onChange={HandleChange}></TextBox>
-            <TextBox required placeholder='Password' name='password' type="password" onChange={HandleChange}></TextBox>
-            <Button onClick={HandleClick}>Login</Button>
-            <ErrorText>This is an Error</ErrorText>
-        </Form>
-    </Container>
-    </>
-  )
+    }, [])
+    return (
+        <>
+            <Container
+                bg={Backg}
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+            >
+                <Form>
+                    <Title><strong>Login</strong></Title>
+                    <TextBox required placeholder='Username' name='username' type="text" onChange={HandleChange}></TextBox>
+                    <TextBox required placeholder='Password' name='password' type="password" onChange={HandleChange}></TextBox>
+                    <Button onClick={HandleClick}>Login</Button>
+                    <ErrorText>This is an Error</ErrorText>
+                </Form>
+            </Container>
+        </>
+    )
 }
 
 export default Adminlogin

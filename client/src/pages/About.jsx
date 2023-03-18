@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Gallery from '../components/About/gallery';
 import bgdsvg from '../assets/blurry-gradient-haikei.svg'
 import hands from '../assets/hands.jpg'
+import { motion } from 'framer-motion'
 
 
 
@@ -118,7 +119,7 @@ const MiddleInfo = styled.div`
   align-items: center;
   color: white;
   justify-content: center;
-  background:  ${props=> props.backgroundpic? "linear-gradient(180deg, rgba(255 255 255 / 54%), rgba(65 105 255 / 100%))": "none"}, url(${props => props.backgroundpic? props.backgroundpic : "none" });
+  background:  ${props => props.backgroundpic ? "linear-gradient(180deg, rgba(255 255 255 / 54%), rgba(65 105 255 / 100%))" : "none"}, url(${props => props.backgroundpic ? props.backgroundpic : "none"});
   background-size: cover;
   h3{
     width: 55%;
@@ -130,7 +131,7 @@ const MiddleInfo = styled.div`
     line-height:30px;
   }
   @media only screen and (max-width:480px){
-    background:  ${props=> props.backgroundpic? "linear-gradient(rgba(255 255 255 / 54%), rgba(65 105 255 / 100%))": "none"}, url(${props => props.backgroundpic? props.backgroundpic : "none" });
+    background:  ${props => props.backgroundpic ? "linear-gradient(rgba(255 255 255 / 54%), rgba(65 105 255 / 100%))" : "none"}, url(${props => props.backgroundpic ? props.backgroundpic : "none"});
         padding: 30px 5;
         h3{
           width: 100%;
@@ -163,19 +164,19 @@ const LastInfo = styled.div`
   margin-bottom: 100px;
   @media only screen and (max-width:480px){
     padding: 20px 5px;
-    margin-bottom: 70px;
     flex-direction: column;
+    margin-bottom: 0;
     }
     @media only screen and (max-width:1024px){
     padding: 20px 10px;
-    margin-bottom: 70px;
     flex-direction: column;
+    margin-bottom: 0;
     }
 
 
 `
 
-const LeftImage = styled.img `
+const LeftImage = styled.img`
   height: 280px;
   width: 350px;
   @media only screen and (max-width:480px){
@@ -221,45 +222,49 @@ const DetailInfo = styled.div`
 
 const AboutPage = (props) => {
   useEffect(() => {
-    const SetTitle = async () =>{
+    const SetTitle = async () => {
       document.title = `${await props.title} - MotivCenter`
     }
     SetTitle()
   }, [])
   return (
-    <>
-    <Header>About Us</Header>
-    <Container>
-    <AboutContainer>
-        <h1>Who we are</h1>
-      <p><span>Motivcenter </span>is a workplace environment transformation company based in Maputo, Mozambique.
-      We’ve been working regionally in the field of Motivation, Team Building and Sales Excellence for close to a decade, across all industry sectors.
-      Our complementary areas of expertise are Leadership Training and Speaker Development.<br/> We specialize in getting people and businesses to better than they were yesterday. We work tirelessly to create stronger people, teams, and businesses.</p>
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+    >
+      <Header>About Us</Header>
+      <Container>
+        <AboutContainer>
+          <h1>Who we are</h1>
+          <p><span>Motivcenter </span>is a workplace environment transformation company based in Maputo, Mozambique.
+            We’ve been working regionally in the field of Motivation, Team Building and Sales Excellence for close to a decade, across all industry sectors.
+            Our complementary areas of expertise are Leadership Training and Speaker Development.<br /> We specialize in getting people and businesses to better than they were yesterday. We work tirelessly to create stronger people, teams, and businesses.</p>
 
-      <SubHeader>Transforming workplaces into performance powerhouses</SubHeader>
-      <p>In any organization, the greatest untapped resource and the most expensive is its people.
-        The greatest potential for growth, productivity, performance, achievement, and profitability lies within the skills and abilities of the average person. Motivcenter works with your team to unleash this potential found in each and everyone within the team. We tear down barriers that exist among team members impeding the smooth flow of work processes.</p>
-        <Button>Contact</Button>
+          <SubHeader>Transforming workplaces into performance powerhouses</SubHeader>
+          <p>In any organization, the greatest untapped resource and the most expensive is its people.
+            The greatest potential for growth, productivity, performance, achievement, and profitability lies within the skills and abilities of the average person. Motivcenter works with your team to unleash this potential found in each and everyone within the team. We tear down barriers that exist among team members impeding the smooth flow of work processes.</p>
+          <Button>Contact</Button>
 
-  </AboutContainer>
-  <GalleryContainer>
-  <Gallery />
-  </GalleryContainer>
-  </Container>
-  <MiddleInfo backgroundpic={hands}>
-    <h3>
-    We specialize in getting people and businesses to better than they were yesterday. We work tirelessly to create stronger people, teams, and businesses.
-    </h3>
-    <p>We mix motivation, training, inhouse and outdoor activities to bring out the potential that teams have and identify ways to harness them. We blend this with action learning, supporting the journey of behavioural change as your people adopt new mindsets and behaviours. Our programmes are mentally and emotionally engaging providing experiential and interactive, robust models and frameworks that leave time for reflection. However, more than anything we believe in offering a practical, pragmatic and real-world perspective that gets to the heart of what matters and helps find actionable answers.</p>
-  </MiddleInfo>
-  <LastInfo bgcolor={bgdsvg}>
-    <LeftImage src="https://picsum.photos/803/400"/>
-    <DetailInfo>
-      <h3>Breaking Down Barriers</h3>
-      <p>We create environments where everyone feels the necessity of being vulnerable and be willing to break down barriers that may exist among them impeding real connection in the team. Our focus is to reveal the value of your people, showing them the potential that they have whilst challenging them to increase their individual value. We work with them to eliminate behaviors that create disconnection in the team learning to improve communication among themselves and with clients leading to a better organization.</p>
-    </DetailInfo>
-  </LastInfo>
-  </>
+        </AboutContainer>
+        <GalleryContainer>
+          <Gallery />
+        </GalleryContainer>
+      </Container>
+      <MiddleInfo backgroundpic={hands}>
+        <h3>
+          We specialize in getting people and businesses to better than they were yesterday. We work tirelessly to create stronger people, teams, and businesses.
+        </h3>
+        <p>We mix motivation, training, inhouse and outdoor activities to bring out the potential that teams have and identify ways to harness them. We blend this with action learning, supporting the journey of behavioural change as your people adopt new mindsets and behaviours. Our programmes are mentally and emotionally engaging providing experiential and interactive, robust models and frameworks that leave time for reflection. However, more than anything we believe in offering a practical, pragmatic and real-world perspective that gets to the heart of what matters and helps find actionable answers.</p>
+      </MiddleInfo>
+      <LastInfo bgcolor={bgdsvg}>
+        <LeftImage src="https://picsum.photos/803/400" />
+        <DetailInfo>
+          <h3>Breaking Down Barriers</h3>
+          <p>We create environments where everyone feels the necessity of being vulnerable and be willing to break down barriers that may exist among them impeding real connection in the team. Our focus is to reveal the value of your people, showing them the potential that they have whilst challenging them to increase their individual value. We work with them to eliminate behaviors that create disconnection in the team learning to improve communication among themselves and with clients leading to a better organization.</p>
+        </DetailInfo>
+      </LastInfo>
+    </motion.div>
   )
 }
 
