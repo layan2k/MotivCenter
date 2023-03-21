@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import LogoImg from'../assets/Logo1.png'
+import LogoImg from '../assets/Logo1.png'
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -9,6 +9,11 @@ const FooterContainer = styled.footer`
   background-color: #2b2d42;
   color: #fff;
   padding: 20px;
+    @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
 `;
 
 const FooterLeft = styled.div`
@@ -19,10 +24,18 @@ const FooterLeft = styled.div`
 const FooterLogo = styled.img`
   height: 40px;
   margin-right: 10px;
+    @media (min-width: 768px) {
+    max-width: none;
+    margin-bottom: 0;
+  }
 `;
 
 const FooterRight = styled.div`
   display: flex;
+    @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 20px;
+  }
 `;
 
 const FooterLink = styled.a`
@@ -30,6 +43,7 @@ const FooterLink = styled.a`
   text-decoration: none;
   font-size: 14px;
   margin-left: 20px;
+
 `;
 const Copyright = styled.span`
   padding-right: 15px;
@@ -41,7 +55,7 @@ const Copyright = styled.span`
 `
 
 const BusinessFooter = () => {
-    const currentDate = new Date()
+  const currentDate = new Date()
   return (
     <FooterContainer>
       <FooterLeft>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Coach from '../../assets/coachs-2.jpg'
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 const Container = styled.div`
 display: flex;
@@ -77,7 +78,7 @@ const ButtonContainer = styled.div`
     align-items: center;
     justify-content: center;
 `
-const ReadMoreBtn = styled.button`
+const ReadMoreBtn = styled(motion.button)`
     width:150px;
     border: none;
     padding: 15px 20px;
@@ -107,7 +108,12 @@ const AboutUs = () => {
                 </Description>
                 <ButtonContainer>
 
-                    <ReadMoreBtn onClick={HandleClick}>Read More</ReadMoreBtn>
+                    <ReadMoreBtn
+                        onClick={HandleClick}
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >Read More</ReadMoreBtn>
                 </ButtonContainer>
             </Wrapper>
             <ImageContainer>

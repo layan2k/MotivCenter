@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Map from '../../img/map.png'
 import Send from '../../img/send.png'
 import Phone from '../../img/phone.png'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
     padding: 50px 20px;
@@ -94,7 +95,7 @@ const TextArea = styled.textarea`
         margin-top: 20px;
     }
 `
-const Button = styled.button`
+const Button = styled(motion.button)`
     padding: 15px 30px;
     margin: 10px 0px;
     border:none;
@@ -177,6 +178,7 @@ const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
 
     const handleSubmit = () => {
+        e.preventDefault()
         console.log(formData)
     }
     return (
@@ -184,7 +186,7 @@ const Contact = () => {
             <Wrapper>
                 <FormContainer>
                     <Title>Questions ? <br /> Lets Get In Touch</Title>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={(e) => handleSubmit(e)}>
                         <LeftForm>
                             <Input placeholder='Your Name' onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
                             <Input placeholder='Your Email' onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
@@ -192,7 +194,11 @@ const Contact = () => {
                         </LeftForm>
                         <RightForm>
                             <TextArea placeholder='Your Message' onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
-                            <Button>Send</Button>
+                            <Button
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.9 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                            >Send</Button>
                         </RightForm>
                     </Form>
                 </FormContainer>

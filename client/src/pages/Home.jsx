@@ -79,13 +79,13 @@ const ServiceShape = styled.div`
 
 
 const Home = (props) => {
+  const smallScreen = window.screen.width <= 1024 ? true : false
   useEffect(() => {
     const SetTitle = async () => {
       document.title = `${await props.title} - MotivCenter`
     }
     SetTitle()
-  }, [props.ti])
-  const smallScreen = window.screen.width <= 1024 ? true : false
+  }, [props.title])
   return (
     <motion.div
       initial={{ width: 0 }}

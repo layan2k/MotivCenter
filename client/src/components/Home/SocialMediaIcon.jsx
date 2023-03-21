@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -6,17 +7,22 @@ const Image = styled.img`
   height: 25px;
   cursor: pointer;
 `
-const LinkIcon = styled.a`
+const LinkIcon = styled(motion.a)`
   text-decoration: none;
 `
 
-function SocialMediaIcon({data}) {
+function SocialMediaIcon({ data }) {
   const Icon = data
   return (
     <>
-    <LinkIcon href={Icon.link} target='_blank'  rel="noopener noreferrer">
-    <Image src={Icon.logo}/>
-    </LinkIcon>
+      <LinkIcon
+        href={Icon.link}
+        target='_blank'
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.2 }}
+      >
+        <Image src={Icon.logo} />
+      </LinkIcon>
     </>
   )
 }

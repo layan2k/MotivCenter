@@ -13,6 +13,7 @@ body {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 code {
@@ -38,7 +39,7 @@ code {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: royalblue;
   border-radius: 30px;
   position: relative;
   z-index: -1;
@@ -58,13 +59,13 @@ code {
 }
 .LinkItem:hover{
   font-weight: 500;
-  color: darkblue;
+  color: royalblue;
 }
 
 .active {
   text-decoration: none;
-  font-weight: 700;
-  color: royalblue;
+  font-weight: 600;
+  color: blue;
   transition: all 0.2s ease-out;
 }
 

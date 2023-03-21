@@ -66,21 +66,21 @@ const Button = styled.button`
     }
 `
 
-export default class Subscribe extends Component {
-  render() {
+const Subscribe = () => {
     return (
-      <Container bgcolor={bgdsvg}>
-        <Wrapper>
-            <Heading>Subscribe For Our Newsletter</Heading>
-            <FormContainer>
-                <Form>
-                    <Input placeholder='Name'></Input>
-                    <Input placeholder='Email'></Input>
-                    <Button>Subscribe</Button>
-                </Form>
-            </FormContainer>
-        </Wrapper>
-      </Container>
+        <Container bgcolor={bgdsvg}>
+            <Wrapper>
+                <Heading>Subscribe For Our Newsletter</Heading>
+                <FormContainer>
+                    <Form>
+                        <Input placeholder='Name'></Input>
+                        <Input placeholder='Email'></Input>
+                        <Button>Subscribe</Button>
+                    </Form>
+                </FormContainer>
+            </Wrapper>
+        </Container>
     )
-  }
 }
+
+export default Subscribe

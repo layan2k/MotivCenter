@@ -16,6 +16,7 @@ const Container = styled.div`
     transition: all 0.3s ease-in-out;
     &:hover{
         box-shadow: rgba(168, 172, 176, 0.19) 0px 4px 35px;
+        scale: 1.1;
     }
     @media only screen and (max-width:480px){
         margin-right:0 ;

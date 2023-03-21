@@ -9,8 +9,9 @@ import BlogSingle from '../pages/BlogSingle'
 import BlogWrite from '../pages/BlogWrite'
 import Layout from '../Layout'
 import AboutPage from '../pages/About'
-import ContactPage from '../pages/Contact'
 import { AnimatePresence } from 'framer-motion'
+
+const LazyContact = React.lazy(() => import('../pages/Contact'))
 
 const AnimatedRoutes = () => {
     const location = useLocation()
@@ -24,8 +25,8 @@ const AnimatedRoutes = () => {
                     <Route path='/blog/post/:id' element={<BlogSingle />} />
                     <Route path='/blog/write' element={<BlogWrite />} />
                     <Route path='/services' element={<Services title='Services' />} />
-                    <Route path='/about' element={<AboutPage title='About' />} />
-                    <Route path='/contact' element={<ContactPage title='Contact Us' />} />
+                    <Route path='/contact' element={<React.Suspense fallback={"Loading..."}><LazyContact title='Contact Us' /></React.Suspense>} />
+                    <Route path='/about' element={<AboutPage title='About Us' />} />
                 </Route>
                 <Route exact path='*' element={<PageNotFound title='Page Not Found' />} />
             </Routes>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 import LogoImg from '../assets/Logo1.png'
@@ -15,10 +15,11 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     `
-const Left = styled.div`
+const Left = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 
 `
 const Right = styled.div`
@@ -43,20 +44,6 @@ const Menuitem = styled.div`
     list-style: none;
     font-size: 16px;
 `
-const Button = styled.button`
-    Border: 2px solid black;
-    padding: 15px 30px;
-    font-size: 16px;
-    background-color: transparent;
-    color: #1D1F22;
-    font-weight:bold;
-    border-radius: 10px;
-    cursor: pointer;
-    &:hover{
-        background-color: darkblue ;
-        color: white;
-    }
-`
 
 const SocialMediaContainer = styled.div`
   display: flex;
@@ -69,7 +56,7 @@ const Navbar = () => {
     return (
         <Container>
             <Wrapper>
-                <Left><Logo src={LogoImg} />
+                <Left to='/'><Logo src={LogoImg} />
                 </Left>
                 <Menu>
 

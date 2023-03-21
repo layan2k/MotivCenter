@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     height: calc(100vh - 50px);
     display: flex;
     padding: 0 20px;
@@ -81,7 +82,7 @@ const Info = styled.div`
     }
 
 `
-const Button = styled.button`
+const Button = styled(motion.button)`
     padding:15px 30px;
     border-radius: 5px;
     background-color: darkblue;
@@ -127,7 +128,11 @@ const Image = styled.img`
 
 const Intro = () => {
     return (
-        <Container>
+        <Container
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.3 }}
+        >
             <Left><Title>
                 Your Success is Our Commitment
             </Title>
@@ -135,7 +140,11 @@ const Intro = () => {
                     We believe in the power of motivated individuals to enhance your work environment.
                 </Description>
                 <Info>
-                    <Button>LEARN MORE</Button>
+                    <Button
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >LEARN MORE</Button>
                     <Contact>
                         <Phone>
                             Call Us +258 84 0396785
