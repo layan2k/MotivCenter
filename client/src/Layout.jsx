@@ -64,7 +64,6 @@ const Layout = () => {
         </Left>
         <MenuIcon src={HamMenu} onClick={handleMenuOpen} />
         <MobileMenu isOpen={menuOpen} onClose={handleMenuClose} />
-        <MobileMenu />
       </Mobile>
       <Outlet />
       <BackToTop />

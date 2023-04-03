@@ -10,6 +10,8 @@ import BlogWrite from '../pages/BlogWrite'
 import Layout from '../Layout'
 import AboutPage from '../pages/About'
 import { AnimatePresence } from 'framer-motion'
+import Terms from '../pages/Terms'
+import PrivacyPolicy from '../pages/PrivacyPage'
 
 const LazyContact = React.lazy(() => import('../pages/Contact'))
 
@@ -27,6 +29,8 @@ const AnimatedRoutes = () => {
                     <Route path='/services' element={<Services title='Services' />} />
                     <Route path='/contact' element={<React.Suspense fallback={"Loading..."}><LazyContact title='Contact Us' /></React.Suspense>} />
                     <Route path='/about' element={<AboutPage title='About Us' />} />
+                    <Route path='/terms-and-conditions' element={<Terms title="Terms And Conditions" />} />
+                    <Route path='/privacy' element={<PrivacyPolicy title="Privacy Policy" />} />
                 </Route>
                 <Route exact path='*' element={<PageNotFound title='Page Not Found' />} />
             </Routes>

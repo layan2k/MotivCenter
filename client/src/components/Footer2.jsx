@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoImg from '../assets/Logo1.png'
 
@@ -38,7 +39,7 @@ const FooterRight = styled.div`
   }
 `;
 
-const FooterLink = styled.a`
+const FooterLink = styled(NavLink)`
   color: #fff;
   text-decoration: none;
   font-size: 14px;
@@ -63,8 +64,8 @@ const BusinessFooter = () => {
         <Copyright>&copy; {currentDate.getFullYear()} MotivCenter. All rights reserved.</Copyright>
       </FooterLeft>
       <FooterRight>
-        <FooterLink href="#">Privacy Policy</FooterLink>
-        <FooterLink href="#">Terms of Use</FooterLink>
+        <FooterLink to="/privacy">Privacy Policy</FooterLink>
+        <FooterLink to="/terms-and-conditions">Terms of Use</FooterLink>
       </FooterRight>
     </FooterContainer>
   );

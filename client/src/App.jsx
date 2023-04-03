@@ -3,6 +3,7 @@ import AnimatedRoutes from './components/AnimatedRoutes'
 import ReactApp from './components/WhatsApp'
 import ScaleLoader from "react-spinners/ScaleLoader";
 import styled from 'styled-components';
+import TermsAndConditionsPopup from './components/PopUp';
 
 
 const AppLoader = styled.div`
@@ -34,6 +35,7 @@ const App = () => {
 
           :
           <div>
+            <TermsAndConditionsPopup />
             <AnimatedRoutes />
             <ReactApp />
           </div>
